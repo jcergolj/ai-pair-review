@@ -1,0 +1,53 @@
+{
+    "name": "jcergolj/ai-pair-review",
+    "description": "AI-powered code review using Claude Code CLI. Reviews for SOLID principles, design patterns, and code quality via composer commands.",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "git",
+        "composer",
+        "code-review",
+        "ai",
+        "claude",
+        "solid",
+        "design-patterns",
+        "code-quality"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jcergolj"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AiReviewHook\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AiReviewHook\\AiReviewHookServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"if (file_exists('.git')) { echo '\\n✨ AI Review installed! Run: php artisan ai-review:install\\n\\n'; }\""
+        ],
+        "ai-review": [
+            "./.ai/scripts/ai-reviewer.sh"
+        ],
+        "ai-review-staged": [
+            "./.ai/scripts/ai-reviewer.sh staged"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

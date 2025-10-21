@@ -1,0 +1,6 @@
+# AI Code Review Ignore File
+# This file tracks issues you've chosen to ignore permanently
+# It gets reset when new uncommitted changes are detected
+
+ignored_issues: []
+last_commit_hash: ""
